@@ -1,0 +1,51 @@
+﻿@model IEnumerable<rozproszone_bazy_danych.Models.Settlement>
+
+@{
+    ViewBag.Title = "History";
+}
+
+<h2>History</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsersId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Current_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.energy_usage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.settlement_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsersId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.energy_usage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.settlement_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

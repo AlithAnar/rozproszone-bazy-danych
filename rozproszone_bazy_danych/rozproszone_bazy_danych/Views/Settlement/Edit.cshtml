@@ -1,0 +1,62 @@
+﻿@model rozproszone_bazy_danych.Models.Settlement
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Settlement</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UsersId, "Users")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UsersId", String.Empty)
+            @Html.ValidationMessageFor(model => model.UsersId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Current_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Current_date)
+            @Html.ValidationMessageFor(model => model.Current_date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.energy_usage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.energy_usage)
+            @Html.ValidationMessageFor(model => model.energy_usage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.settlement_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.settlement_date)
+            @Html.ValidationMessageFor(model => model.settlement_date)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
