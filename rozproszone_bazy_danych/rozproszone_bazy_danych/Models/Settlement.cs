@@ -11,16 +11,14 @@ namespace rozproszone_bazy_danych.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    
+   
     public partial class Settlement
     {
         public int Id { get; set; }
         public int UsersId { get; set; }
         public System.DateTime Current_date { get; set; }
-        [Required(ErrorMessage="Musisz wprowadziæ jak¹œ wartoœæ")]
-        [Display(Name="Wartoœæ energii [W]")]
         public double energy_usage { get; set; }
+        
         public System.DateTime settlement_date { get; set; }
     
         public virtual Users Users { get; set; }

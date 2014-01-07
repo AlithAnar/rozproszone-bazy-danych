@@ -6,26 +6,28 @@
 
 <h2>Index</h2>
 
+<h2>@ViewBag.error</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Users.UserName)
+            Użytkownik
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Current_date)
+            Dzisiejsza data
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.energy_usage)
+            Stan zużycia energii
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.settlement_date)
+            Data ostatniego zgłoszenia
         </th>
         <th></th>
     </tr>
-
+    
 @foreach (var item in Model) {
     <tr>
         <td>

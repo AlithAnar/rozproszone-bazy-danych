@@ -17,6 +17,8 @@ namespace rozproszone_bazy_danych.Models
             }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<Users> Users { get; set; }
         }
 
     [Table("UserProfile")]

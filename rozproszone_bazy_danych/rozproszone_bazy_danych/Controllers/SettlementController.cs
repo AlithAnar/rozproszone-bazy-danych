@@ -18,8 +18,19 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Index()
             {
-            var settlement = db.Settlement.Include(s => s.Users);
-            return View(settlement.ToList());
+            try
+                {
+                var settlement = db.Settlement.Include(s => s.Users);
+                ViewBag.error = "";
+                return View(settlement.ToList());
+                }
+            catch (EntityException ex)
+                {
+                var settlement = new List<Settlement>();
+                ViewBag.error = "Brak połączenia z bazą danych";
+                return View(settlement);
+                }
+            
             }
 
         //

@@ -1,10 +1,10 @@
 ﻿@model rozproszone_bazy_danych.Models.Settlement
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Stan zużycia energii elektrycznej";
 }
 
-<h2>Create</h2>
+<h2>Stan zużycia energii elektrycznej</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -13,46 +13,25 @@
     <fieldset>
         <legend>Settlement</legend>
 
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.UsersId, "Users")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("UsersId", String.Empty)
-            @Html.ValidationMessageFor(model => model.UsersId)
-        </div>*@
 
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.Current_date)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Current_date==@DateTime.Now)
-            @Html.ValidationMessageFor(model => model.Current_date)
-        </div>*@
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.energy_usage)
+           Zużycie energii w [W]
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.energy_usage)
             @Html.ValidationMessageFor(model => model.energy_usage)
         </div>
 
-        @*<div class="editor-label">
-            @Html.LabelFor(model => model.settlement_date)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.settlement_date)
-            @Html.ValidationMessageFor(model => model.settlement_date)
-        </div>*@
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Wyślij" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Przeglądaj historię rachunku", "Index")
 </div>
 
 @section Scripts {

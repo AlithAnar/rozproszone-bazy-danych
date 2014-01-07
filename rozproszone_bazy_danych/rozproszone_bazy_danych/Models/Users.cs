@@ -8,19 +8,27 @@
 //------------------------------------------------------------------------------
 
 namespace rozproszone_bazy_danych.Models
-{
+    {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Data.SqlClient;
+
     public partial class Users
-    {
-        public Users()
         {
+        public Users()
+            {
             this.Settlement = new HashSet<Settlement>();
-        }
-    
+            }
+
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Nazwa u¿ytkownika")]
         public string UserName { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Has³o")]
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string SureName { get; set; }
@@ -29,8 +37,9 @@ namespace rozproszone_bazy_danych.Models
         public double Last_energy_usage { get; set; }
         public Nullable<double> Pesel { get; set; }
         public int City_Id { get; set; }
-    
+
         public virtual City City { get; set; }
         public virtual ICollection<Settlement> Settlement { get; set; }
+
+        }
     }
-}
