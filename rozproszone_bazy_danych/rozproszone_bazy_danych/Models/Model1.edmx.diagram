@@ -29,6 +29,19 @@
         <AssociationConnector Association="SettlementModel.FK_CityProvince" ManuallyRouted="false" />
         <AssociationConnector Association="SettlementModel.FK_UsersCity" ManuallyRouted="false" />
         <AssociationConnector Association="SettlementModel.FK_UsersSettlement" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SettlementModel.conflict_dbo_City" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="SettlementModel.conflict_dbo_Province" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SettlementModel.conflict_dbo_Settlement" Width="1.5" PointX="15.375" PointY="5.75" />
+        <EntityTypeShape EntityType="SettlementModel.conflict_dbo_Users" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SettlementModel.MSreplication_objects" Width="1.5" PointX="15.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SettlementModel.MSreplication_subscriptions" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SettlementModel.MSsubscription_agents" Width="1.5" PointX="13.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SettlementModel.MSsubscription_articles" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SettlementModel.syncobj_0x3834384334344536" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SettlementModel.syncobj_0x3946454639324231" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SettlementModel.syncobj_0x4439414242463337" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SettlementModel.syncobj_0x4538363531383346" Width="1.5" PointX="17.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SettlementModel.sysextendedarticlesview" Width="1.5" PointX="17.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

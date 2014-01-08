@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SettlementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SettlementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,6 +12,107 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Province_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.conflict_dbo_City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="conflict_dbo_City">
+          <Key>
+            <PropertyRef Name="__$inserted_date" />
+            <PropertyRef Name="__$row_id" />
+          </Key>
+          <Property Name="__$originator_id" Type="int" />
+          <Property Name="__$origin_datasource" Type="int" />
+          <Property Name="__$tranid" Type="nvarchar" MaxLength="40" />
+          <Property Name="__$conflict_type" Type="int" />
+          <Property Name="__$is_winner" Type="bit" />
+          <Property Name="__$pre_version" Type="varbinary" MaxLength="32" />
+          <Property Name="__$reason_code" Type="int" />
+          <Property Name="__$reason_text" Type="nvarchar" MaxLength="720" />
+          <Property Name="__$update_bitmap" Type="varbinary" MaxLength="32" />
+          <Property Name="__$inserted_date" Type="datetime" Nullable="false" />
+          <Property Name="__$row_id" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="__$change_id" Type="binary" MaxLength="8" />
+          <Property Name="Id" Type="int" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="Province_Id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.conflict_dbo_Province' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="conflict_dbo_Province">
+          <Key>
+            <PropertyRef Name="__$inserted_date" />
+            <PropertyRef Name="__$row_id" />
+          </Key>
+          <Property Name="__$originator_id" Type="int" />
+          <Property Name="__$origin_datasource" Type="int" />
+          <Property Name="__$tranid" Type="nvarchar" MaxLength="40" />
+          <Property Name="__$conflict_type" Type="int" />
+          <Property Name="__$is_winner" Type="bit" />
+          <Property Name="__$pre_version" Type="varbinary" MaxLength="32" />
+          <Property Name="__$reason_code" Type="int" />
+          <Property Name="__$reason_text" Type="nvarchar" MaxLength="720" />
+          <Property Name="__$update_bitmap" Type="varbinary" MaxLength="32" />
+          <Property Name="__$inserted_date" Type="datetime" Nullable="false" />
+          <Property Name="__$row_id" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="__$change_id" Type="binary" MaxLength="8" />
+          <Property Name="Id" Type="int" />
+          <Property Name="name" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.conflict_dbo_Settlement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="conflict_dbo_Settlement">
+          <Key>
+            <PropertyRef Name="__$inserted_date" />
+            <PropertyRef Name="__$row_id" />
+          </Key>
+          <Property Name="__$originator_id" Type="int" />
+          <Property Name="__$origin_datasource" Type="int" />
+          <Property Name="__$tranid" Type="nvarchar" MaxLength="40" />
+          <Property Name="__$conflict_type" Type="int" />
+          <Property Name="__$is_winner" Type="bit" />
+          <Property Name="__$pre_version" Type="varbinary" MaxLength="32" />
+          <Property Name="__$reason_code" Type="int" />
+          <Property Name="__$reason_text" Type="nvarchar" MaxLength="720" />
+          <Property Name="__$update_bitmap" Type="varbinary" MaxLength="32" />
+          <Property Name="__$inserted_date" Type="datetime" Nullable="false" />
+          <Property Name="__$row_id" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="__$change_id" Type="binary" MaxLength="8" />
+          <Property Name="Id" Type="int" />
+          <Property Name="UsersId" Type="int" />
+          <Property Name="Current_date" Type="datetime" />
+          <Property Name="energy_usage" Type="float" />
+          <Property Name="settlement_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.conflict_dbo_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="conflict_dbo_Users">
+          <Key>
+            <PropertyRef Name="__$inserted_date" />
+            <PropertyRef Name="__$row_id" />
+          </Key>
+          <Property Name="__$originator_id" Type="int" />
+          <Property Name="__$origin_datasource" Type="int" />
+          <Property Name="__$tranid" Type="nvarchar" MaxLength="40" />
+          <Property Name="__$conflict_type" Type="int" />
+          <Property Name="__$is_winner" Type="bit" />
+          <Property Name="__$pre_version" Type="varbinary" MaxLength="32" />
+          <Property Name="__$reason_code" Type="int" />
+          <Property Name="__$reason_text" Type="nvarchar" MaxLength="720" />
+          <Property Name="__$update_bitmap" Type="varbinary" MaxLength="32" />
+          <Property Name="__$inserted_date" Type="datetime" Nullable="false" />
+          <Property Name="__$row_id" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="__$change_id" Type="binary" MaxLength="8" />
+          <Property Name="Id" Type="int" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="SureName" Type="nvarchar(max)" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Last_energy_usage" Type="float" />
+          <Property Name="Pesel" Type="float" />
+          <Property Name="City_Id" Type="int" />
+          <Property Name="PasswordSalt" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="MSpeer_conflictdetectionconfigrequest">
           <Key>
@@ -150,6 +251,99 @@ warning 6002: The table/view 'Settlement.dbo.MSpub_identity_range' does not have
           <Property Name="current_pub_range" Type="bigint" Nullable="false" />
           <Property Name="threshold" Type="int" Nullable="false" />
           <Property Name="last_seed" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.MSreplication_objects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSreplication_objects">
+          <Key>
+            <PropertyRef Name="object_name" />
+            <PropertyRef Name="object_type" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" />
+          <Property Name="object_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="object_type" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="article" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.MSreplication_subscriptions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSreplication_subscriptions">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="independent_agent" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="transaction_timestamp" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="immediate_sync" />
+          </Key>
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" />
+          <Property Name="independent_agent" Type="bit" Nullable="false" />
+          <Property Name="subscription_type" Type="int" Nullable="false" />
+          <Property Name="distribution_agent" Type="nvarchar" MaxLength="128" />
+          <Property Name="time" Type="smalldatetime" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="transaction_timestamp" Type="varbinary" MaxLength="16" Nullable="false" />
+          <Property Name="update_mode" Type="tinyint" Nullable="false" />
+          <Property Name="agent_id" Type="binary" MaxLength="16" />
+          <Property Name="subscription_guid" Type="binary" MaxLength="16" />
+          <Property Name="subid" Type="binary" MaxLength="16" />
+          <Property Name="immediate_sync" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.MSsubscription_agents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_agents">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="failover_mode" />
+            <PropertyRef Name="spid" />
+            <PropertyRef Name="login_time" />
+            <PropertyRef Name="allow_subscription_copy" />
+            <PropertyRef Name="attach_state" />
+            <PropertyRef Name="attach_version" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="publisher" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publisher_db" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="publication" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="subscription_type" Type="int" Nullable="false" />
+          <Property Name="queue_id" Type="nvarchar" MaxLength="128" />
+          <Property Name="update_mode" Type="tinyint" Nullable="false" />
+          <Property Name="failover_mode" Type="bit" Nullable="false" />
+          <Property Name="spid" Type="int" Nullable="false" />
+          <Property Name="login_time" Type="datetime" Nullable="false" />
+          <Property Name="allow_subscription_copy" Type="bit" Nullable="false" />
+          <Property Name="attach_state" Type="int" Nullable="false" />
+          <Property Name="attach_version" Type="binary" MaxLength="16" Nullable="false" />
+          <Property Name="last_sync_status" Type="int" />
+          <Property Name="last_sync_summary" Type="nvarchar" MaxLength="128" />
+          <Property Name="last_sync_time" Type="datetime" />
+          <Property Name="queue_server" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.MSsubscription_articles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MSsubscription_articles">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="article" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="owner" />
+          </Key>
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="artid" Type="int" Nullable="false" />
+          <Property Name="article" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="dest_table" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="owner" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="cft_table" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="Province">
           <Key>
@@ -409,6 +603,105 @@ warning 6002: The table/view 'Settlement.dbo.systranschemas' does not have a pri
           <Property Name="Last_energy_usage" Type="float" Nullable="false" />
           <Property Name="Pesel" Type="float" />
           <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.syncobj_0x3834384334344536' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="syncobj_0x3834384334344536">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.syncobj_0x3946454639324231' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="syncobj_0x3946454639324231">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Last_energy_usage" />
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="SureName" Type="nvarchar(max)" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Last_energy_usage" Type="float" Nullable="false" />
+          <Property Name="Pesel" Type="float" />
+          <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.syncobj_0x4439414242463337' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="syncobj_0x4439414242463337">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Province_Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Province_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.syncobj_0x4538363531383346' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="syncobj_0x4538363531383346">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UsersId" />
+            <PropertyRef Name="Current_date" />
+            <PropertyRef Name="energy_usage" />
+            <PropertyRef Name="settlement_date" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsersId" Type="int" Nullable="false" />
+          <Property Name="Current_date" Type="datetime" Nullable="false" />
+          <Property Name="energy_usage" Type="float" Nullable="false" />
+          <Property Name="settlement_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Settlement.dbo.sysextendedarticlesview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sysextendedarticlesview">
+          <Key>
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="objid" />
+            <PropertyRef Name="pubid" />
+            <PropertyRef Name="pre_creation_cmd" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="fire_triggers_on_snapshot" />
+          </Key>
+          <Property Name="artid" Type="int" Nullable="false" />
+          <Property Name="creation_script" Type="nvarchar" MaxLength="255" />
+          <Property Name="del_cmd" Type="nvarchar" MaxLength="255" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="dest_table" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="filter" Type="int" />
+          <Property Name="filter_clause" Type="ntext" />
+          <Property Name="ins_cmd" Type="nvarchar" MaxLength="255" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="objid" Type="int" Nullable="false" />
+          <Property Name="pubid" Type="int" Nullable="false" />
+          <Property Name="pre_creation_cmd" Type="tinyint" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="sync_objid" Type="int" />
+          <Property Name="type" Type="tinyint" Nullable="false" />
+          <Property Name="upd_cmd" Type="nvarchar" MaxLength="255" />
+          <Property Name="schema_option" Type="binary" MaxLength="8" />
+          <Property Name="dest_owner" Type="nvarchar" MaxLength="128" />
+          <Property Name="ins_scripting_proc" Type="int" />
+          <Property Name="del_scripting_proc" Type="int" />
+          <Property Name="upd_scripting_proc" Type="int" />
+          <Property Name="custom_script" Type="nvarchar" MaxLength="2048" />
+          <Property Name="fire_triggers_on_snapshot" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_CityProvince">
           <End Role="Province" Type="Self.Province" Multiplicity="1" />
@@ -419,18 +712,6 @@ warning 6002: The table/view 'Settlement.dbo.systranschemas' does not have a pri
             </Principal>
             <Dependent Role="City">
               <PropertyRef Name="Province_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UsersCity">
-          <End Role="City" Type="Self.City" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="City_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -446,6 +727,104 @@ warning 6002: The table/view 'Settlement.dbo.systranschemas' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_MSdel_dboCity0673561194" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSdel_dboProvince01017492934" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSdel_dboSettlement0400754763" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSdel_dboUsers367493953" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSins_dboCity0673561194" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c3" Type="int" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSins_dboProvince01017492934" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSins_dboSettlement0400754763" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="int" Mode="In" />
+          <Parameter Name="c3" Type="datetime" Mode="In" />
+          <Parameter Name="c4" Type="float" Mode="In" />
+          <Parameter Name="c5" Type="datetime" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSins_dboUsers367493953" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c3" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c4" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c5" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c6" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c7" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c8" Type="float" Mode="In" />
+          <Parameter Name="c9" Type="float" Mode="In" />
+          <Parameter Name="c10" Type="int" Mode="In" />
+          <Parameter Name="c11" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSupd_dboCity0673561194" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c3" Type="int" Mode="In" />
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="bitmap" Type="binary" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSupd_dboProvince01017492934" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="bitmap" Type="binary" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSupd_dboSettlement0400754763" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="int" Mode="In" />
+          <Parameter Name="c3" Type="datetime" Mode="In" />
+          <Parameter Name="c4" Type="float" Mode="In" />
+          <Parameter Name="c5" Type="datetime" Mode="In" />
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="bitmap" Type="binary" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="sp_MSupd_dboUsers367493953" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="c1" Type="int" Mode="In" />
+          <Parameter Name="c2" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c3" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c4" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c5" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c6" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c7" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="c8" Type="float" Mode="In" />
+          <Parameter Name="c9" Type="float" Mode="In" />
+          <Parameter Name="c10" Type="int" Mode="In" />
+          <Parameter Name="c11" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="pkc1" Type="int" Mode="In" />
+          <Parameter Name="bitmap" Type="binary" Mode="In" />
+          <Parameter Name="MSp2pPreVersion" Type="varbinary" Mode="In" />
+          <Parameter Name="MSp2pPostVersion" Type="varbinary" Mode="In" />
+        </Function>
         <EntityContainer Name="SettlementModelStoreContainer">
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MSpeer_conflictdetectionconfigrequest" EntityType="Self.MSpeer_conflictdetectionconfigrequest" Schema="dbo" store:Type="Tables" />
@@ -454,6 +833,91 @@ warning 6002: The table/view 'Settlement.dbo.systranschemas' does not have a pri
           <EntitySet Name="Settlement" EntityType="Self.Settlement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysreplservers" EntityType="Self.sysreplservers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="conflict_dbo_City" EntityType="Self.conflict_dbo_City" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[conflict_dbo_City].[__$originator_id] AS [__$originator_id], 
+[conflict_dbo_City].[__$origin_datasource] AS [__$origin_datasource], 
+[conflict_dbo_City].[__$tranid] AS [__$tranid], 
+[conflict_dbo_City].[__$conflict_type] AS [__$conflict_type], 
+[conflict_dbo_City].[__$is_winner] AS [__$is_winner], 
+[conflict_dbo_City].[__$pre_version] AS [__$pre_version], 
+[conflict_dbo_City].[__$reason_code] AS [__$reason_code], 
+[conflict_dbo_City].[__$reason_text] AS [__$reason_text], 
+[conflict_dbo_City].[__$update_bitmap] AS [__$update_bitmap], 
+[conflict_dbo_City].[__$inserted_date] AS [__$inserted_date], 
+[conflict_dbo_City].[__$row_id] AS [__$row_id], 
+[conflict_dbo_City].[__$change_id] AS [__$change_id], 
+[conflict_dbo_City].[Id] AS [Id], 
+[conflict_dbo_City].[name] AS [name], 
+[conflict_dbo_City].[Province_Id] AS [Province_Id]
+FROM [dbo].[conflict_dbo_City] AS [conflict_dbo_City]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="conflict_dbo_Province" EntityType="Self.conflict_dbo_Province" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[conflict_dbo_Province].[__$originator_id] AS [__$originator_id], 
+[conflict_dbo_Province].[__$origin_datasource] AS [__$origin_datasource], 
+[conflict_dbo_Province].[__$tranid] AS [__$tranid], 
+[conflict_dbo_Province].[__$conflict_type] AS [__$conflict_type], 
+[conflict_dbo_Province].[__$is_winner] AS [__$is_winner], 
+[conflict_dbo_Province].[__$pre_version] AS [__$pre_version], 
+[conflict_dbo_Province].[__$reason_code] AS [__$reason_code], 
+[conflict_dbo_Province].[__$reason_text] AS [__$reason_text], 
+[conflict_dbo_Province].[__$update_bitmap] AS [__$update_bitmap], 
+[conflict_dbo_Province].[__$inserted_date] AS [__$inserted_date], 
+[conflict_dbo_Province].[__$row_id] AS [__$row_id], 
+[conflict_dbo_Province].[__$change_id] AS [__$change_id], 
+[conflict_dbo_Province].[Id] AS [Id], 
+[conflict_dbo_Province].[name] AS [name]
+FROM [dbo].[conflict_dbo_Province] AS [conflict_dbo_Province]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="conflict_dbo_Settlement" EntityType="Self.conflict_dbo_Settlement" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[conflict_dbo_Settlement].[__$originator_id] AS [__$originator_id], 
+[conflict_dbo_Settlement].[__$origin_datasource] AS [__$origin_datasource], 
+[conflict_dbo_Settlement].[__$tranid] AS [__$tranid], 
+[conflict_dbo_Settlement].[__$conflict_type] AS [__$conflict_type], 
+[conflict_dbo_Settlement].[__$is_winner] AS [__$is_winner], 
+[conflict_dbo_Settlement].[__$pre_version] AS [__$pre_version], 
+[conflict_dbo_Settlement].[__$reason_code] AS [__$reason_code], 
+[conflict_dbo_Settlement].[__$reason_text] AS [__$reason_text], 
+[conflict_dbo_Settlement].[__$update_bitmap] AS [__$update_bitmap], 
+[conflict_dbo_Settlement].[__$inserted_date] AS [__$inserted_date], 
+[conflict_dbo_Settlement].[__$row_id] AS [__$row_id], 
+[conflict_dbo_Settlement].[__$change_id] AS [__$change_id], 
+[conflict_dbo_Settlement].[Id] AS [Id], 
+[conflict_dbo_Settlement].[UsersId] AS [UsersId], 
+[conflict_dbo_Settlement].[Current_date] AS [Current_date], 
+[conflict_dbo_Settlement].[energy_usage] AS [energy_usage], 
+[conflict_dbo_Settlement].[settlement_date] AS [settlement_date]
+FROM [dbo].[conflict_dbo_Settlement] AS [conflict_dbo_Settlement]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="conflict_dbo_Users" EntityType="Self.conflict_dbo_Users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[conflict_dbo_Users].[__$originator_id] AS [__$originator_id], 
+[conflict_dbo_Users].[__$origin_datasource] AS [__$origin_datasource], 
+[conflict_dbo_Users].[__$tranid] AS [__$tranid], 
+[conflict_dbo_Users].[__$conflict_type] AS [__$conflict_type], 
+[conflict_dbo_Users].[__$is_winner] AS [__$is_winner], 
+[conflict_dbo_Users].[__$pre_version] AS [__$pre_version], 
+[conflict_dbo_Users].[__$reason_code] AS [__$reason_code], 
+[conflict_dbo_Users].[__$reason_text] AS [__$reason_text], 
+[conflict_dbo_Users].[__$update_bitmap] AS [__$update_bitmap], 
+[conflict_dbo_Users].[__$inserted_date] AS [__$inserted_date], 
+[conflict_dbo_Users].[__$row_id] AS [__$row_id], 
+[conflict_dbo_Users].[__$change_id] AS [__$change_id], 
+[conflict_dbo_Users].[Id] AS [Id], 
+[conflict_dbo_Users].[UserName] AS [UserName], 
+[conflict_dbo_Users].[Password] AS [Password], 
+[conflict_dbo_Users].[FirstName] AS [FirstName], 
+[conflict_dbo_Users].[SureName] AS [SureName], 
+[conflict_dbo_Users].[Mail] AS [Mail], 
+[conflict_dbo_Users].[Phone] AS [Phone], 
+[conflict_dbo_Users].[Last_energy_usage] AS [Last_energy_usage], 
+[conflict_dbo_Users].[Pesel] AS [Pesel], 
+[conflict_dbo_Users].[City_Id] AS [City_Id], 
+[conflict_dbo_Users].[PasswordSalt] AS [PasswordSalt]
+FROM [dbo].[conflict_dbo_Users] AS [conflict_dbo_Users]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="MSpeer_conflictdetectionconfigresponse" EntityType="Self.MSpeer_conflictdetectionconfigresponse" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [MSpeer_conflictdetectionconfigresponse].[request_id] AS [request_id], 
@@ -526,6 +990,65 @@ FROM [dbo].[MSpeer_topologyresponse] AS [MSpeer_topologyresponse]</DefiningQuery
 [MSpub_identity_range].[threshold] AS [threshold], 
 [MSpub_identity_range].[last_seed] AS [last_seed]
 FROM [dbo].[MSpub_identity_range] AS [MSpub_identity_range]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSreplication_objects" EntityType="Self.MSreplication_objects" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSreplication_objects].[publisher] AS [publisher], 
+[MSreplication_objects].[publisher_db] AS [publisher_db], 
+[MSreplication_objects].[publication] AS [publication], 
+[MSreplication_objects].[object_name] AS [object_name], 
+[MSreplication_objects].[object_type] AS [object_type], 
+[MSreplication_objects].[article] AS [article]
+FROM [dbo].[MSreplication_objects] AS [MSreplication_objects]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSreplication_subscriptions" EntityType="Self.MSreplication_subscriptions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSreplication_subscriptions].[publisher] AS [publisher], 
+[MSreplication_subscriptions].[publisher_db] AS [publisher_db], 
+[MSreplication_subscriptions].[publication] AS [publication], 
+[MSreplication_subscriptions].[independent_agent] AS [independent_agent], 
+[MSreplication_subscriptions].[subscription_type] AS [subscription_type], 
+[MSreplication_subscriptions].[distribution_agent] AS [distribution_agent], 
+[MSreplication_subscriptions].[time] AS [time], 
+[MSreplication_subscriptions].[description] AS [description], 
+[MSreplication_subscriptions].[transaction_timestamp] AS [transaction_timestamp], 
+[MSreplication_subscriptions].[update_mode] AS [update_mode], 
+[MSreplication_subscriptions].[agent_id] AS [agent_id], 
+[MSreplication_subscriptions].[subscription_guid] AS [subscription_guid], 
+[MSreplication_subscriptions].[subid] AS [subid], 
+[MSreplication_subscriptions].[immediate_sync] AS [immediate_sync]
+FROM [dbo].[MSreplication_subscriptions] AS [MSreplication_subscriptions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_agents" EntityType="Self.MSsubscription_agents" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_agents].[id] AS [id], 
+[MSsubscription_agents].[publisher] AS [publisher], 
+[MSsubscription_agents].[publisher_db] AS [publisher_db], 
+[MSsubscription_agents].[publication] AS [publication], 
+[MSsubscription_agents].[subscription_type] AS [subscription_type], 
+[MSsubscription_agents].[queue_id] AS [queue_id], 
+[MSsubscription_agents].[update_mode] AS [update_mode], 
+[MSsubscription_agents].[failover_mode] AS [failover_mode], 
+[MSsubscription_agents].[spid] AS [spid], 
+[MSsubscription_agents].[login_time] AS [login_time], 
+[MSsubscription_agents].[allow_subscription_copy] AS [allow_subscription_copy], 
+[MSsubscription_agents].[attach_state] AS [attach_state], 
+[MSsubscription_agents].[attach_version] AS [attach_version], 
+[MSsubscription_agents].[last_sync_status] AS [last_sync_status], 
+[MSsubscription_agents].[last_sync_summary] AS [last_sync_summary], 
+[MSsubscription_agents].[last_sync_time] AS [last_sync_time], 
+[MSsubscription_agents].[queue_server] AS [queue_server]
+FROM [dbo].[MSsubscription_agents] AS [MSsubscription_agents]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MSsubscription_articles" EntityType="Self.MSsubscription_articles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[MSsubscription_articles].[agent_id] AS [agent_id], 
+[MSsubscription_articles].[artid] AS [artid], 
+[MSsubscription_articles].[article] AS [article], 
+[MSsubscription_articles].[dest_table] AS [dest_table], 
+[MSsubscription_articles].[owner] AS [owner], 
+[MSsubscription_articles].[cft_table] AS [cft_table]
+FROM [dbo].[MSsubscription_articles] AS [MSsubscription_articles]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="sysarticlecolumns" EntityType="Self.sysarticlecolumns" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -664,21 +1187,80 @@ FROM [dbo].[syssubscriptions] AS [syssubscriptions]</DefiningQuery>
 [systranschemas].[typeid] AS [typeid]
 FROM [dbo].[systranschemas] AS [systranschemas]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="syncobj_0x3834384334344536" EntityType="Self.syncobj_0x3834384334344536" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[syncobj_0x3834384334344536].[Id] AS [Id], 
+[syncobj_0x3834384334344536].[name] AS [name]
+FROM [dbo].[syncobj_0x3834384334344536] AS [syncobj_0x3834384334344536]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="syncobj_0x3946454639324231" EntityType="Self.syncobj_0x3946454639324231" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[syncobj_0x3946454639324231].[Id] AS [Id], 
+[syncobj_0x3946454639324231].[UserName] AS [UserName], 
+[syncobj_0x3946454639324231].[Password] AS [Password], 
+[syncobj_0x3946454639324231].[FirstName] AS [FirstName], 
+[syncobj_0x3946454639324231].[SureName] AS [SureName], 
+[syncobj_0x3946454639324231].[Mail] AS [Mail], 
+[syncobj_0x3946454639324231].[Phone] AS [Phone], 
+[syncobj_0x3946454639324231].[Last_energy_usage] AS [Last_energy_usage], 
+[syncobj_0x3946454639324231].[Pesel] AS [Pesel], 
+[syncobj_0x3946454639324231].[City_Id] AS [City_Id], 
+[syncobj_0x3946454639324231].[PasswordSalt] AS [PasswordSalt]
+FROM [dbo].[syncobj_0x3946454639324231] AS [syncobj_0x3946454639324231]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="syncobj_0x4439414242463337" EntityType="Self.syncobj_0x4439414242463337" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[syncobj_0x4439414242463337].[Id] AS [Id], 
+[syncobj_0x4439414242463337].[name] AS [name], 
+[syncobj_0x4439414242463337].[Province_Id] AS [Province_Id]
+FROM [dbo].[syncobj_0x4439414242463337] AS [syncobj_0x4439414242463337]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="syncobj_0x4538363531383346" EntityType="Self.syncobj_0x4538363531383346" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[syncobj_0x4538363531383346].[Id] AS [Id], 
+[syncobj_0x4538363531383346].[UsersId] AS [UsersId], 
+[syncobj_0x4538363531383346].[Current_date] AS [Current_date], 
+[syncobj_0x4538363531383346].[energy_usage] AS [energy_usage], 
+[syncobj_0x4538363531383346].[settlement_date] AS [settlement_date]
+FROM [dbo].[syncobj_0x4538363531383346] AS [syncobj_0x4538363531383346]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sysextendedarticlesview" EntityType="Self.sysextendedarticlesview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[sysextendedarticlesview].[artid] AS [artid], 
+[sysextendedarticlesview].[creation_script] AS [creation_script], 
+[sysextendedarticlesview].[del_cmd] AS [del_cmd], 
+[sysextendedarticlesview].[description] AS [description], 
+[sysextendedarticlesview].[dest_table] AS [dest_table], 
+[sysextendedarticlesview].[filter] AS [filter], 
+[sysextendedarticlesview].[filter_clause] AS [filter_clause], 
+[sysextendedarticlesview].[ins_cmd] AS [ins_cmd], 
+[sysextendedarticlesview].[name] AS [name], 
+[sysextendedarticlesview].[objid] AS [objid], 
+[sysextendedarticlesview].[pubid] AS [pubid], 
+[sysextendedarticlesview].[pre_creation_cmd] AS [pre_creation_cmd], 
+[sysextendedarticlesview].[status] AS [status], 
+[sysextendedarticlesview].[sync_objid] AS [sync_objid], 
+[sysextendedarticlesview].[type] AS [type], 
+[sysextendedarticlesview].[upd_cmd] AS [upd_cmd], 
+[sysextendedarticlesview].[schema_option] AS [schema_option], 
+[sysextendedarticlesview].[dest_owner] AS [dest_owner], 
+[sysextendedarticlesview].[ins_scripting_proc] AS [ins_scripting_proc], 
+[sysextendedarticlesview].[del_scripting_proc] AS [del_scripting_proc], 
+[sysextendedarticlesview].[upd_scripting_proc] AS [upd_scripting_proc], 
+[sysextendedarticlesview].[custom_script] AS [custom_script], 
+[sysextendedarticlesview].[fire_triggers_on_snapshot] AS [fire_triggers_on_snapshot]
+FROM [dbo].[sysextendedarticlesview] AS [sysextendedarticlesview]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CityProvince" Association="Self.FK_CityProvince">
             <End Role="Province" EntitySet="Province" />
             <End Role="City" EntitySet="City" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UsersCity" Association="Self.FK_UsersCity">
-            <End Role="City" EntitySet="City" />
-            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_UsersSettlement" Association="Self.FK_UsersSettlement">
             <End Role="Users" EntitySet="Users" />
             <End Role="Settlement" EntitySet="Settlement" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SettlementModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -761,6 +1343,7 @@ FROM [dbo].[systranschemas] AS [systranschemas]</DefiningQuery>
           <Property Name="City_Id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_UsersCity" FromRole="Users" ToRole="City" />
           <NavigationProperty Name="Settlement" Relationship="Self.FK_UsersSettlement" FromRole="Users" ToRole="Settlement" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MSpeer_conflictdetectionconfigresponse">
           <Key>
@@ -1135,7 +1718,384 @@ FROM [dbo].[systranschemas] AS [systranschemas]</DefiningQuery>
             <End Role="Users" EntitySet="Users" />
             <End Role="Settlement" EntitySet="Settlement" />
           </AssociationSet>
+          <EntitySet Name="conflict_dbo_City" EntityType="SettlementModel.conflict_dbo_City" />
+          <EntitySet Name="conflict_dbo_Province" EntityType="SettlementModel.conflict_dbo_Province" />
+          <EntitySet Name="conflict_dbo_Settlement" EntityType="SettlementModel.conflict_dbo_Settlement" />
+          <EntitySet Name="conflict_dbo_Users" EntityType="SettlementModel.conflict_dbo_Users" />
+          <EntitySet Name="MSreplication_objects" EntityType="SettlementModel.MSreplication_objects" />
+          <EntitySet Name="MSreplication_subscriptions" EntityType="SettlementModel.MSreplication_subscriptions" />
+          <EntitySet Name="MSsubscription_agents" EntityType="SettlementModel.MSsubscription_agents" />
+          <EntitySet Name="MSsubscription_articles" EntityType="SettlementModel.MSsubscription_articles" />
+          <EntitySet Name="syncobj_0x3834384334344536" EntityType="SettlementModel.syncobj_0x3834384334344536" />
+          <EntitySet Name="syncobj_0x3946454639324231" EntityType="SettlementModel.syncobj_0x3946454639324231" />
+          <EntitySet Name="syncobj_0x4439414242463337" EntityType="SettlementModel.syncobj_0x4439414242463337" />
+          <EntitySet Name="syncobj_0x4538363531383346" EntityType="SettlementModel.syncobj_0x4538363531383346" />
+          <EntitySet Name="sysextendedarticlesview" EntityType="SettlementModel.sysextendedarticlesview" />
+          <FunctionImport Name="sp_MSdel_dboCity0673561194">
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSdel_dboProvince01017492934">
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSdel_dboSettlement0400754763">
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSdel_dboUsers367493953">
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSins_dboCity0673561194">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="c3" Mode="In" Type="Int32" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSins_dboProvince01017492934">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSins_dboSettlement0400754763">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="Int32" />
+            <Parameter Name="c3" Mode="In" Type="DateTime" />
+            <Parameter Name="c4" Mode="In" Type="Double" />
+            <Parameter Name="c5" Mode="In" Type="DateTime" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSins_dboUsers367493953">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="c3" Mode="In" Type="String" />
+            <Parameter Name="c4" Mode="In" Type="String" />
+            <Parameter Name="c5" Mode="In" Type="String" />
+            <Parameter Name="c6" Mode="In" Type="String" />
+            <Parameter Name="c7" Mode="In" Type="String" />
+            <Parameter Name="c8" Mode="In" Type="Double" />
+            <Parameter Name="c9" Mode="In" Type="Double" />
+            <Parameter Name="c10" Mode="In" Type="Int32" />
+            <Parameter Name="c11" Mode="In" Type="String" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSupd_dboCity0673561194">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="c3" Mode="In" Type="Int32" />
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="bitmap" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSupd_dboProvince01017492934">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="bitmap" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSupd_dboSettlement0400754763">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="Int32" />
+            <Parameter Name="c3" Mode="In" Type="DateTime" />
+            <Parameter Name="c4" Mode="In" Type="Double" />
+            <Parameter Name="c5" Mode="In" Type="DateTime" />
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="bitmap" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_MSupd_dboUsers367493953">
+            <Parameter Name="c1" Mode="In" Type="Int32" />
+            <Parameter Name="c2" Mode="In" Type="String" />
+            <Parameter Name="c3" Mode="In" Type="String" />
+            <Parameter Name="c4" Mode="In" Type="String" />
+            <Parameter Name="c5" Mode="In" Type="String" />
+            <Parameter Name="c6" Mode="In" Type="String" />
+            <Parameter Name="c7" Mode="In" Type="String" />
+            <Parameter Name="c8" Mode="In" Type="Double" />
+            <Parameter Name="c9" Mode="In" Type="Double" />
+            <Parameter Name="c10" Mode="In" Type="Int32" />
+            <Parameter Name="c11" Mode="In" Type="String" />
+            <Parameter Name="pkc1" Mode="In" Type="Int32" />
+            <Parameter Name="bitmap" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPreVersion" Mode="In" Type="Binary" />
+            <Parameter Name="MSp2pPostVersion" Mode="In" Type="Binary" />
+          </FunctionImport>
         </EntityContainer>
+        <EntityType Name="conflict_dbo_City">
+          <Key>
+            <PropertyRef Name="C___inserted_date" />
+            <PropertyRef Name="C___row_id" />
+          </Key>
+          <Property Name="C___originator_id" Type="Int32" />
+          <Property Name="C___origin_datasource" Type="Int32" />
+          <Property Name="C___tranid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="C___conflict_type" Type="Int32" />
+          <Property Name="C___is_winner" Type="Boolean" />
+          <Property Name="C___pre_version" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___reason_code" Type="Int32" />
+          <Property Name="C___reason_text" Type="String" MaxLength="720" FixedLength="false" Unicode="true" />
+          <Property Name="C___update_bitmap" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___inserted_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="C___row_id" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="C___change_id" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Province_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="conflict_dbo_Province">
+          <Key>
+            <PropertyRef Name="C___inserted_date" />
+            <PropertyRef Name="C___row_id" />
+          </Key>
+          <Property Name="C___originator_id" Type="Int32" />
+          <Property Name="C___origin_datasource" Type="Int32" />
+          <Property Name="C___tranid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="C___conflict_type" Type="Int32" />
+          <Property Name="C___is_winner" Type="Boolean" />
+          <Property Name="C___pre_version" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___reason_code" Type="Int32" />
+          <Property Name="C___reason_text" Type="String" MaxLength="720" FixedLength="false" Unicode="true" />
+          <Property Name="C___update_bitmap" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___inserted_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="C___row_id" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="C___change_id" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="conflict_dbo_Settlement">
+          <Key>
+            <PropertyRef Name="C___inserted_date" />
+            <PropertyRef Name="C___row_id" />
+          </Key>
+          <Property Name="C___originator_id" Type="Int32" />
+          <Property Name="C___origin_datasource" Type="Int32" />
+          <Property Name="C___tranid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="C___conflict_type" Type="Int32" />
+          <Property Name="C___is_winner" Type="Boolean" />
+          <Property Name="C___pre_version" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___reason_code" Type="Int32" />
+          <Property Name="C___reason_text" Type="String" MaxLength="720" FixedLength="false" Unicode="true" />
+          <Property Name="C___update_bitmap" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___inserted_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="C___row_id" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="C___change_id" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="UsersId" Type="Int32" />
+          <Property Name="Current_date" Type="DateTime" Precision="3" />
+          <Property Name="energy_usage" Type="Double" />
+          <Property Name="settlement_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="conflict_dbo_Users">
+          <Key>
+            <PropertyRef Name="C___inserted_date" />
+            <PropertyRef Name="C___row_id" />
+          </Key>
+          <Property Name="C___originator_id" Type="Int32" />
+          <Property Name="C___origin_datasource" Type="Int32" />
+          <Property Name="C___tranid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="C___conflict_type" Type="Int32" />
+          <Property Name="C___is_winner" Type="Boolean" />
+          <Property Name="C___pre_version" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___reason_code" Type="Int32" />
+          <Property Name="C___reason_text" Type="String" MaxLength="720" FixedLength="false" Unicode="true" />
+          <Property Name="C___update_bitmap" Type="Binary" MaxLength="32" FixedLength="false" />
+          <Property Name="C___inserted_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="C___row_id" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="C___change_id" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Last_energy_usage" Type="Double" />
+          <Property Name="Pesel" Type="Double" />
+          <Property Name="City_Id" Type="Int32" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSreplication_objects">
+          <Key>
+            <PropertyRef Name="object_name" />
+            <PropertyRef Name="object_type" />
+          </Key>
+          <Property Name="publisher" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="object_name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="object_type" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="article" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSreplication_subscriptions">
+          <Key>
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="independent_agent" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="time" />
+            <PropertyRef Name="transaction_timestamp" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="immediate_sync" />
+          </Key>
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="independent_agent" Type="Boolean" Nullable="false" />
+          <Property Name="subscription_type" Type="Int32" Nullable="false" />
+          <Property Name="distribution_agent" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="transaction_timestamp" Type="Binary" Nullable="false" MaxLength="16" FixedLength="false" />
+          <Property Name="update_mode" Type="Byte" Nullable="false" />
+          <Property Name="agent_id" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="subscription_guid" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="subid" Type="Binary" MaxLength="16" FixedLength="true" />
+          <Property Name="immediate_sync" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MSsubscription_agents">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="publisher" />
+            <PropertyRef Name="publisher_db" />
+            <PropertyRef Name="publication" />
+            <PropertyRef Name="subscription_type" />
+            <PropertyRef Name="update_mode" />
+            <PropertyRef Name="failover_mode" />
+            <PropertyRef Name="spid" />
+            <PropertyRef Name="login_time" />
+            <PropertyRef Name="allow_subscription_copy" />
+            <PropertyRef Name="attach_state" />
+            <PropertyRef Name="attach_version" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="publisher" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publisher_db" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="publication" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="subscription_type" Type="Int32" Nullable="false" />
+          <Property Name="queue_id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="update_mode" Type="Byte" Nullable="false" />
+          <Property Name="failover_mode" Type="Boolean" Nullable="false" />
+          <Property Name="spid" Type="Int32" Nullable="false" />
+          <Property Name="login_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="allow_subscription_copy" Type="Boolean" Nullable="false" />
+          <Property Name="attach_state" Type="Int32" Nullable="false" />
+          <Property Name="attach_version" Type="Binary" Nullable="false" MaxLength="16" FixedLength="true" />
+          <Property Name="last_sync_status" Type="Int32" />
+          <Property Name="last_sync_summary" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="last_sync_time" Type="DateTime" Precision="3" />
+          <Property Name="queue_server" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MSsubscription_articles">
+          <Key>
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="article" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="owner" />
+          </Key>
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="artid" Type="Int32" Nullable="false" />
+          <Property Name="article" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="dest_table" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="owner" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="cft_table" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="syncobj_0x3834384334344536">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="syncobj_0x3946454639324231">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Last_energy_usage" />
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Last_energy_usage" Type="Double" Nullable="false" />
+          <Property Name="Pesel" Type="Double" />
+          <Property Name="City_Id" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="syncobj_0x4439414242463337">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="Province_Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Province_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="syncobj_0x4538363531383346">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="UsersId" />
+            <PropertyRef Name="Current_date" />
+            <PropertyRef Name="energy_usage" />
+            <PropertyRef Name="settlement_date" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsersId" Type="Int32" Nullable="false" />
+          <Property Name="Current_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="energy_usage" Type="Double" Nullable="false" />
+          <Property Name="settlement_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="sysextendedarticlesview">
+          <Key>
+            <PropertyRef Name="artid" />
+            <PropertyRef Name="dest_table" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="objid" />
+            <PropertyRef Name="pubid" />
+            <PropertyRef Name="pre_creation_cmd" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="fire_triggers_on_snapshot" />
+          </Key>
+          <Property Name="artid" Type="Int32" Nullable="false" />
+          <Property Name="creation_script" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="del_cmd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dest_table" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="filter" Type="Int32" />
+          <Property Name="filter_clause" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ins_cmd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="objid" Type="Int32" Nullable="false" />
+          <Property Name="pubid" Type="Int32" Nullable="false" />
+          <Property Name="pre_creation_cmd" Type="Byte" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="sync_objid" Type="Int32" />
+          <Property Name="type" Type="Byte" Nullable="false" />
+          <Property Name="upd_cmd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="schema_option" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="dest_owner" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ins_scripting_proc" Type="Int32" />
+          <Property Name="del_scripting_proc" Type="Int32" />
+          <Property Name="upd_scripting_proc" Type="Int32" />
+          <Property Name="custom_script" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="fire_triggers_on_snapshot" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1210,6 +2170,7 @@ FROM [dbo].[systranschemas] AS [systranschemas]</DefiningQuery>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SettlementModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -1461,6 +2422,252 @@ FROM [dbo].[systranschemas] AS [systranschemas]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="conflict_dbo_City">
+            <EntityTypeMapping TypeName="SettlementModel.conflict_dbo_City">
+              <MappingFragment StoreEntitySet="conflict_dbo_City">
+                <ScalarProperty Name="Province_Id" ColumnName="Province_Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="C___change_id" ColumnName="__$change_id" />
+                <ScalarProperty Name="C___row_id" ColumnName="__$row_id" />
+                <ScalarProperty Name="C___inserted_date" ColumnName="__$inserted_date" />
+                <ScalarProperty Name="C___update_bitmap" ColumnName="__$update_bitmap" />
+                <ScalarProperty Name="C___reason_text" ColumnName="__$reason_text" />
+                <ScalarProperty Name="C___reason_code" ColumnName="__$reason_code" />
+                <ScalarProperty Name="C___pre_version" ColumnName="__$pre_version" />
+                <ScalarProperty Name="C___is_winner" ColumnName="__$is_winner" />
+                <ScalarProperty Name="C___conflict_type" ColumnName="__$conflict_type" />
+                <ScalarProperty Name="C___tranid" ColumnName="__$tranid" />
+                <ScalarProperty Name="C___origin_datasource" ColumnName="__$origin_datasource" />
+                <ScalarProperty Name="C___originator_id" ColumnName="__$originator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conflict_dbo_Province">
+            <EntityTypeMapping TypeName="SettlementModel.conflict_dbo_Province">
+              <MappingFragment StoreEntitySet="conflict_dbo_Province">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="C___change_id" ColumnName="__$change_id" />
+                <ScalarProperty Name="C___row_id" ColumnName="__$row_id" />
+                <ScalarProperty Name="C___inserted_date" ColumnName="__$inserted_date" />
+                <ScalarProperty Name="C___update_bitmap" ColumnName="__$update_bitmap" />
+                <ScalarProperty Name="C___reason_text" ColumnName="__$reason_text" />
+                <ScalarProperty Name="C___reason_code" ColumnName="__$reason_code" />
+                <ScalarProperty Name="C___pre_version" ColumnName="__$pre_version" />
+                <ScalarProperty Name="C___is_winner" ColumnName="__$is_winner" />
+                <ScalarProperty Name="C___conflict_type" ColumnName="__$conflict_type" />
+                <ScalarProperty Name="C___tranid" ColumnName="__$tranid" />
+                <ScalarProperty Name="C___origin_datasource" ColumnName="__$origin_datasource" />
+                <ScalarProperty Name="C___originator_id" ColumnName="__$originator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conflict_dbo_Settlement">
+            <EntityTypeMapping TypeName="SettlementModel.conflict_dbo_Settlement">
+              <MappingFragment StoreEntitySet="conflict_dbo_Settlement">
+                <ScalarProperty Name="settlement_date" ColumnName="settlement_date" />
+                <ScalarProperty Name="energy_usage" ColumnName="energy_usage" />
+                <ScalarProperty Name="Current_date" ColumnName="Current_date" />
+                <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="C___change_id" ColumnName="__$change_id" />
+                <ScalarProperty Name="C___row_id" ColumnName="__$row_id" />
+                <ScalarProperty Name="C___inserted_date" ColumnName="__$inserted_date" />
+                <ScalarProperty Name="C___update_bitmap" ColumnName="__$update_bitmap" />
+                <ScalarProperty Name="C___reason_text" ColumnName="__$reason_text" />
+                <ScalarProperty Name="C___reason_code" ColumnName="__$reason_code" />
+                <ScalarProperty Name="C___pre_version" ColumnName="__$pre_version" />
+                <ScalarProperty Name="C___is_winner" ColumnName="__$is_winner" />
+                <ScalarProperty Name="C___conflict_type" ColumnName="__$conflict_type" />
+                <ScalarProperty Name="C___tranid" ColumnName="__$tranid" />
+                <ScalarProperty Name="C___origin_datasource" ColumnName="__$origin_datasource" />
+                <ScalarProperty Name="C___originator_id" ColumnName="__$originator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conflict_dbo_Users">
+            <EntityTypeMapping TypeName="SettlementModel.conflict_dbo_Users">
+              <MappingFragment StoreEntitySet="conflict_dbo_Users">
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Last_energy_usage" ColumnName="Last_energy_usage" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="SureName" ColumnName="SureName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="C___change_id" ColumnName="__$change_id" />
+                <ScalarProperty Name="C___row_id" ColumnName="__$row_id" />
+                <ScalarProperty Name="C___inserted_date" ColumnName="__$inserted_date" />
+                <ScalarProperty Name="C___update_bitmap" ColumnName="__$update_bitmap" />
+                <ScalarProperty Name="C___reason_text" ColumnName="__$reason_text" />
+                <ScalarProperty Name="C___reason_code" ColumnName="__$reason_code" />
+                <ScalarProperty Name="C___pre_version" ColumnName="__$pre_version" />
+                <ScalarProperty Name="C___is_winner" ColumnName="__$is_winner" />
+                <ScalarProperty Name="C___conflict_type" ColumnName="__$conflict_type" />
+                <ScalarProperty Name="C___tranid" ColumnName="__$tranid" />
+                <ScalarProperty Name="C___origin_datasource" ColumnName="__$origin_datasource" />
+                <ScalarProperty Name="C___originator_id" ColumnName="__$originator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_objects">
+            <EntityTypeMapping TypeName="SettlementModel.MSreplication_objects">
+              <MappingFragment StoreEntitySet="MSreplication_objects">
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="object_name" ColumnName="object_name" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSreplication_subscriptions">
+            <EntityTypeMapping TypeName="SettlementModel.MSreplication_subscriptions">
+              <MappingFragment StoreEntitySet="MSreplication_subscriptions">
+                <ScalarProperty Name="immediate_sync" ColumnName="immediate_sync" />
+                <ScalarProperty Name="subid" ColumnName="subid" />
+                <ScalarProperty Name="subscription_guid" ColumnName="subscription_guid" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+                <ScalarProperty Name="transaction_timestamp" ColumnName="transaction_timestamp" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="distribution_agent" ColumnName="distribution_agent" />
+                <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+                <ScalarProperty Name="independent_agent" ColumnName="independent_agent" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_agents">
+            <EntityTypeMapping TypeName="SettlementModel.MSsubscription_agents">
+              <MappingFragment StoreEntitySet="MSsubscription_agents">
+                <ScalarProperty Name="queue_server" ColumnName="queue_server" />
+                <ScalarProperty Name="last_sync_time" ColumnName="last_sync_time" />
+                <ScalarProperty Name="last_sync_summary" ColumnName="last_sync_summary" />
+                <ScalarProperty Name="last_sync_status" ColumnName="last_sync_status" />
+                <ScalarProperty Name="attach_version" ColumnName="attach_version" />
+                <ScalarProperty Name="attach_state" ColumnName="attach_state" />
+                <ScalarProperty Name="allow_subscription_copy" ColumnName="allow_subscription_copy" />
+                <ScalarProperty Name="login_time" ColumnName="login_time" />
+                <ScalarProperty Name="spid" ColumnName="spid" />
+                <ScalarProperty Name="failover_mode" ColumnName="failover_mode" />
+                <ScalarProperty Name="update_mode" ColumnName="update_mode" />
+                <ScalarProperty Name="queue_id" ColumnName="queue_id" />
+                <ScalarProperty Name="subscription_type" ColumnName="subscription_type" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publisher_db" ColumnName="publisher_db" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSsubscription_articles">
+            <EntityTypeMapping TypeName="SettlementModel.MSsubscription_articles">
+              <MappingFragment StoreEntitySet="MSsubscription_articles">
+                <ScalarProperty Name="cft_table" ColumnName="cft_table" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="dest_table" ColumnName="dest_table" />
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="artid" ColumnName="artid" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syncobj_0x3834384334344536">
+            <EntityTypeMapping TypeName="SettlementModel.syncobj_0x3834384334344536">
+              <MappingFragment StoreEntitySet="syncobj_0x3834384334344536">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syncobj_0x3946454639324231">
+            <EntityTypeMapping TypeName="SettlementModel.syncobj_0x3946454639324231">
+              <MappingFragment StoreEntitySet="syncobj_0x3946454639324231">
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Last_energy_usage" ColumnName="Last_energy_usage" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="SureName" ColumnName="SureName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syncobj_0x4439414242463337">
+            <EntityTypeMapping TypeName="SettlementModel.syncobj_0x4439414242463337">
+              <MappingFragment StoreEntitySet="syncobj_0x4439414242463337">
+                <ScalarProperty Name="Province_Id" ColumnName="Province_Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="syncobj_0x4538363531383346">
+            <EntityTypeMapping TypeName="SettlementModel.syncobj_0x4538363531383346">
+              <MappingFragment StoreEntitySet="syncobj_0x4538363531383346">
+                <ScalarProperty Name="settlement_date" ColumnName="settlement_date" />
+                <ScalarProperty Name="energy_usage" ColumnName="energy_usage" />
+                <ScalarProperty Name="Current_date" ColumnName="Current_date" />
+                <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysextendedarticlesview">
+            <EntityTypeMapping TypeName="SettlementModel.sysextendedarticlesview">
+              <MappingFragment StoreEntitySet="sysextendedarticlesview">
+                <ScalarProperty Name="fire_triggers_on_snapshot" ColumnName="fire_triggers_on_snapshot" />
+                <ScalarProperty Name="custom_script" ColumnName="custom_script" />
+                <ScalarProperty Name="upd_scripting_proc" ColumnName="upd_scripting_proc" />
+                <ScalarProperty Name="del_scripting_proc" ColumnName="del_scripting_proc" />
+                <ScalarProperty Name="ins_scripting_proc" ColumnName="ins_scripting_proc" />
+                <ScalarProperty Name="dest_owner" ColumnName="dest_owner" />
+                <ScalarProperty Name="schema_option" ColumnName="schema_option" />
+                <ScalarProperty Name="upd_cmd" ColumnName="upd_cmd" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="sync_objid" ColumnName="sync_objid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="pre_creation_cmd" ColumnName="pre_creation_cmd" />
+                <ScalarProperty Name="pubid" ColumnName="pubid" />
+                <ScalarProperty Name="objid" ColumnName="objid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ins_cmd" ColumnName="ins_cmd" />
+                <ScalarProperty Name="filter_clause" ColumnName="filter_clause" />
+                <ScalarProperty Name="filter" ColumnName="filter" />
+                <ScalarProperty Name="dest_table" ColumnName="dest_table" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="del_cmd" ColumnName="del_cmd" />
+                <ScalarProperty Name="creation_script" ColumnName="creation_script" />
+                <ScalarProperty Name="artid" ColumnName="artid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_MSdel_dboCity0673561194" FunctionName="SettlementModel.Store.sp_MSdel_dboCity0673561194" />
+          <FunctionImportMapping FunctionImportName="sp_MSdel_dboProvince01017492934" FunctionName="SettlementModel.Store.sp_MSdel_dboProvince01017492934" />
+          <FunctionImportMapping FunctionImportName="sp_MSdel_dboSettlement0400754763" FunctionName="SettlementModel.Store.sp_MSdel_dboSettlement0400754763" />
+          <FunctionImportMapping FunctionImportName="sp_MSdel_dboUsers367493953" FunctionName="SettlementModel.Store.sp_MSdel_dboUsers367493953" />
+          <FunctionImportMapping FunctionImportName="sp_MSins_dboCity0673561194" FunctionName="SettlementModel.Store.sp_MSins_dboCity0673561194" />
+          <FunctionImportMapping FunctionImportName="sp_MSins_dboProvince01017492934" FunctionName="SettlementModel.Store.sp_MSins_dboProvince01017492934" />
+          <FunctionImportMapping FunctionImportName="sp_MSins_dboSettlement0400754763" FunctionName="SettlementModel.Store.sp_MSins_dboSettlement0400754763" />
+          <FunctionImportMapping FunctionImportName="sp_MSins_dboUsers367493953" FunctionName="SettlementModel.Store.sp_MSins_dboUsers367493953" />
+          <FunctionImportMapping FunctionImportName="sp_MSupd_dboCity0673561194" FunctionName="SettlementModel.Store.sp_MSupd_dboCity0673561194" />
+          <FunctionImportMapping FunctionImportName="sp_MSupd_dboProvince01017492934" FunctionName="SettlementModel.Store.sp_MSupd_dboProvince01017492934" />
+          <FunctionImportMapping FunctionImportName="sp_MSupd_dboSettlement0400754763" FunctionName="SettlementModel.Store.sp_MSupd_dboSettlement0400754763" />
+          <FunctionImportMapping FunctionImportName="sp_MSupd_dboUsers367493953" FunctionName="SettlementModel.Store.sp_MSupd_dboUsers367493953" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

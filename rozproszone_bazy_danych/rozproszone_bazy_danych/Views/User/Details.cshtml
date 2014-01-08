@@ -1,7 +1,7 @@
 ﻿@model rozproszone_bazy_danych.Models.Users
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Twój profil";
 }
 
 <h2>Details</h2>
@@ -14,13 +14,6 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.UserName)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Password)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Password)
     </div>
 
     <div class="display-label">
@@ -73,6 +66,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Wróć", "Index", "Home");
 </p>

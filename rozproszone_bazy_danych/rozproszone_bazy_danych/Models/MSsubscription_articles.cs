@@ -12,14 +12,13 @@ namespace rozproszone_bazy_danych.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Settlement
+    public partial class MSsubscription_articles
     {
-        public int Id { get; set; }
-        public int UsersId { get; set; }
-        public System.DateTime Current_date { get; set; }
-        public double energy_usage { get; set; }
-        public System.DateTime settlement_date { get; set; }
-    
-        public virtual Users Users { get; set; }
+        public int agent_id { get; set; }
+        public int artid { get; set; }
+        public string article { get; set; }
+        public string dest_table { get; set; }
+        public string owner { get; set; }
+        public string cft_table { get; set; }
     }
 }

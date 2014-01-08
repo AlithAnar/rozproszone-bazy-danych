@@ -12,6 +12,9 @@ namespace rozproszone_bazy_danych.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class SettlementEntities : DbContext
     {
@@ -46,5 +49,374 @@ namespace rozproszone_bazy_danych.Models
         public DbSet<sysschemaarticles> sysschemaarticles { get; set; }
         public DbSet<syssubscriptions> syssubscriptions { get; set; }
         public DbSet<systranschemas> systranschemas { get; set; }
+        public DbSet<conflict_dbo_City> conflict_dbo_City { get; set; }
+        public DbSet<conflict_dbo_Province> conflict_dbo_Province { get; set; }
+        public DbSet<conflict_dbo_Settlement> conflict_dbo_Settlement { get; set; }
+        public DbSet<conflict_dbo_Users> conflict_dbo_Users { get; set; }
+        public DbSet<MSreplication_objects> MSreplication_objects { get; set; }
+        public DbSet<MSreplication_subscriptions> MSreplication_subscriptions { get; set; }
+        public DbSet<MSsubscription_agents> MSsubscription_agents { get; set; }
+        public DbSet<MSsubscription_articles> MSsubscription_articles { get; set; }
+        public DbSet<syncobj_0x3834384334344536> syncobj_0x3834384334344536 { get; set; }
+        public DbSet<syncobj_0x3946454639324231> syncobj_0x3946454639324231 { get; set; }
+        public DbSet<syncobj_0x4439414242463337> syncobj_0x4439414242463337 { get; set; }
+        public DbSet<syncobj_0x4538363531383346> syncobj_0x4538363531383346 { get; set; }
+        public DbSet<sysextendedarticlesview> sysextendedarticlesview { get; set; }
+    
+        public virtual int sp_MSdel_dboCity0673561194(Nullable<int> pkc1, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSdel_dboCity0673561194", pkc1Parameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSdel_dboProvince01017492934(Nullable<int> pkc1, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSdel_dboProvince01017492934", pkc1Parameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSdel_dboSettlement0400754763(Nullable<int> pkc1, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSdel_dboSettlement0400754763", pkc1Parameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSdel_dboUsers367493953(Nullable<int> pkc1, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSdel_dboUsers367493953", pkc1Parameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSins_dboCity0673561194(Nullable<int> c1, string c2, Nullable<int> c3, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var c3Parameter = c3.HasValue ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(int));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSins_dboCity0673561194", c1Parameter, c2Parameter, c3Parameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSins_dboProvince01017492934(Nullable<int> c1, string c2, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSins_dboProvince01017492934", c1Parameter, c2Parameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSins_dboSettlement0400754763(Nullable<int> c1, Nullable<int> c2, Nullable<System.DateTime> c3, Nullable<double> c4, Nullable<System.DateTime> c5, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2.HasValue ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(int));
+    
+            var c3Parameter = c3.HasValue ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(System.DateTime));
+    
+            var c4Parameter = c4.HasValue ?
+                new ObjectParameter("c4", c4) :
+                new ObjectParameter("c4", typeof(double));
+    
+            var c5Parameter = c5.HasValue ?
+                new ObjectParameter("c5", c5) :
+                new ObjectParameter("c5", typeof(System.DateTime));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSins_dboSettlement0400754763", c1Parameter, c2Parameter, c3Parameter, c4Parameter, c5Parameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSins_dboUsers367493953(Nullable<int> c1, string c2, string c3, string c4, string c5, string c6, string c7, Nullable<double> c8, Nullable<double> c9, Nullable<int> c10, string c11, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var c3Parameter = c3 != null ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(string));
+    
+            var c4Parameter = c4 != null ?
+                new ObjectParameter("c4", c4) :
+                new ObjectParameter("c4", typeof(string));
+    
+            var c5Parameter = c5 != null ?
+                new ObjectParameter("c5", c5) :
+                new ObjectParameter("c5", typeof(string));
+    
+            var c6Parameter = c6 != null ?
+                new ObjectParameter("c6", c6) :
+                new ObjectParameter("c6", typeof(string));
+    
+            var c7Parameter = c7 != null ?
+                new ObjectParameter("c7", c7) :
+                new ObjectParameter("c7", typeof(string));
+    
+            var c8Parameter = c8.HasValue ?
+                new ObjectParameter("c8", c8) :
+                new ObjectParameter("c8", typeof(double));
+    
+            var c9Parameter = c9.HasValue ?
+                new ObjectParameter("c9", c9) :
+                new ObjectParameter("c9", typeof(double));
+    
+            var c10Parameter = c10.HasValue ?
+                new ObjectParameter("c10", c10) :
+                new ObjectParameter("c10", typeof(int));
+    
+            var c11Parameter = c11 != null ?
+                new ObjectParameter("c11", c11) :
+                new ObjectParameter("c11", typeof(string));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSins_dboUsers367493953", c1Parameter, c2Parameter, c3Parameter, c4Parameter, c5Parameter, c6Parameter, c7Parameter, c8Parameter, c9Parameter, c10Parameter, c11Parameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSupd_dboCity0673561194(Nullable<int> c1, string c2, Nullable<int> c3, Nullable<int> pkc1, byte[] bitmap, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var c3Parameter = c3.HasValue ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(int));
+    
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var bitmapParameter = bitmap != null ?
+                new ObjectParameter("bitmap", bitmap) :
+                new ObjectParameter("bitmap", typeof(byte[]));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSupd_dboCity0673561194", c1Parameter, c2Parameter, c3Parameter, pkc1Parameter, bitmapParameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSupd_dboProvince01017492934(Nullable<int> c1, string c2, Nullable<int> pkc1, byte[] bitmap, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var bitmapParameter = bitmap != null ?
+                new ObjectParameter("bitmap", bitmap) :
+                new ObjectParameter("bitmap", typeof(byte[]));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSupd_dboProvince01017492934", c1Parameter, c2Parameter, pkc1Parameter, bitmapParameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSupd_dboSettlement0400754763(Nullable<int> c1, Nullable<int> c2, Nullable<System.DateTime> c3, Nullable<double> c4, Nullable<System.DateTime> c5, Nullable<int> pkc1, byte[] bitmap, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2.HasValue ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(int));
+    
+            var c3Parameter = c3.HasValue ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(System.DateTime));
+    
+            var c4Parameter = c4.HasValue ?
+                new ObjectParameter("c4", c4) :
+                new ObjectParameter("c4", typeof(double));
+    
+            var c5Parameter = c5.HasValue ?
+                new ObjectParameter("c5", c5) :
+                new ObjectParameter("c5", typeof(System.DateTime));
+    
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var bitmapParameter = bitmap != null ?
+                new ObjectParameter("bitmap", bitmap) :
+                new ObjectParameter("bitmap", typeof(byte[]));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSupd_dboSettlement0400754763", c1Parameter, c2Parameter, c3Parameter, c4Parameter, c5Parameter, pkc1Parameter, bitmapParameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
+    
+        public virtual int sp_MSupd_dboUsers367493953(Nullable<int> c1, string c2, string c3, string c4, string c5, string c6, string c7, Nullable<double> c8, Nullable<double> c9, Nullable<int> c10, string c11, Nullable<int> pkc1, byte[] bitmap, byte[] mSp2pPreVersion, byte[] mSp2pPostVersion)
+        {
+            var c1Parameter = c1.HasValue ?
+                new ObjectParameter("c1", c1) :
+                new ObjectParameter("c1", typeof(int));
+    
+            var c2Parameter = c2 != null ?
+                new ObjectParameter("c2", c2) :
+                new ObjectParameter("c2", typeof(string));
+    
+            var c3Parameter = c3 != null ?
+                new ObjectParameter("c3", c3) :
+                new ObjectParameter("c3", typeof(string));
+    
+            var c4Parameter = c4 != null ?
+                new ObjectParameter("c4", c4) :
+                new ObjectParameter("c4", typeof(string));
+    
+            var c5Parameter = c5 != null ?
+                new ObjectParameter("c5", c5) :
+                new ObjectParameter("c5", typeof(string));
+    
+            var c6Parameter = c6 != null ?
+                new ObjectParameter("c6", c6) :
+                new ObjectParameter("c6", typeof(string));
+    
+            var c7Parameter = c7 != null ?
+                new ObjectParameter("c7", c7) :
+                new ObjectParameter("c7", typeof(string));
+    
+            var c8Parameter = c8.HasValue ?
+                new ObjectParameter("c8", c8) :
+                new ObjectParameter("c8", typeof(double));
+    
+            var c9Parameter = c9.HasValue ?
+                new ObjectParameter("c9", c9) :
+                new ObjectParameter("c9", typeof(double));
+    
+            var c10Parameter = c10.HasValue ?
+                new ObjectParameter("c10", c10) :
+                new ObjectParameter("c10", typeof(int));
+    
+            var c11Parameter = c11 != null ?
+                new ObjectParameter("c11", c11) :
+                new ObjectParameter("c11", typeof(string));
+    
+            var pkc1Parameter = pkc1.HasValue ?
+                new ObjectParameter("pkc1", pkc1) :
+                new ObjectParameter("pkc1", typeof(int));
+    
+            var bitmapParameter = bitmap != null ?
+                new ObjectParameter("bitmap", bitmap) :
+                new ObjectParameter("bitmap", typeof(byte[]));
+    
+            var mSp2pPreVersionParameter = mSp2pPreVersion != null ?
+                new ObjectParameter("MSp2pPreVersion", mSp2pPreVersion) :
+                new ObjectParameter("MSp2pPreVersion", typeof(byte[]));
+    
+            var mSp2pPostVersionParameter = mSp2pPostVersion != null ?
+                new ObjectParameter("MSp2pPostVersion", mSp2pPostVersion) :
+                new ObjectParameter("MSp2pPostVersion", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSupd_dboUsers367493953", c1Parameter, c2Parameter, c3Parameter, c4Parameter, c5Parameter, c6Parameter, c7Parameter, c8Parameter, c9Parameter, c10Parameter, c11Parameter, pkc1Parameter, bitmapParameter, mSp2pPreVersionParameter, mSp2pPostVersionParameter);
+        }
     }
 }

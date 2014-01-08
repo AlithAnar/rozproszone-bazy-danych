@@ -12,14 +12,10 @@ namespace rozproszone_bazy_danych.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Settlement
+    public partial class syncobj_0x4439414242463337
     {
         public int Id { get; set; }
-        public int UsersId { get; set; }
-        public System.DateTime Current_date { get; set; }
-        public double energy_usage { get; set; }
-        public System.DateTime settlement_date { get; set; }
-    
-        public virtual Users Users { get; set; }
+        public string name { get; set; }
+        public int Province_Id { get; set; }
     }
 }

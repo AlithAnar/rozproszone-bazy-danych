@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using rozproszone_bazy_danych.Models;
+using System.Web.Security;
 
 namespace rozproszone_bazy_danych.Controllers
     {
@@ -64,7 +65,9 @@ namespace rozproszone_bazy_danych.Controllers
             {
             settlement.Current_date = DateTime.Now;
             settlement.settlement_date = DateTime.Now;
-            settlement.UsersId = 6;
+            var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            var ticketInfo = FormsAuthentication.Decrypt(cookie.Value);
+            settlement.UsersId = int.Parse(ticketInfo.UserData);
 
             if (ModelState.IsValid)
                 {

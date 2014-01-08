@@ -12,14 +12,13 @@ namespace rozproszone_bazy_danych.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Settlement
+    public partial class MSreplication_objects
     {
-        public int Id { get; set; }
-        public int UsersId { get; set; }
-        public System.DateTime Current_date { get; set; }
-        public double energy_usage { get; set; }
-        public System.DateTime settlement_date { get; set; }
-    
-        public virtual Users Users { get; set; }
+        public string publisher { get; set; }
+        public string publisher_db { get; set; }
+        public string publication { get; set; }
+        public string object_name { get; set; }
+        public string object_type { get; set; }
+        public string article { get; set; }
     }
 }

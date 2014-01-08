@@ -14,6 +14,17 @@ namespace rozproszone_bazy_danych
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "CityList",
+               url: "User/City/List/{Id}",
+               defaults: new { controller = "User", action = "CityList", id = UrlParameter.Optional }
+           );
+            routes.MapRoute(
+               name: "ProvinceList",
+               url: "User/Province/List",
+               defaults: new { controller = "User", action = "ProvinceList", id = UrlParameter.Optional }
+           );
+            
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

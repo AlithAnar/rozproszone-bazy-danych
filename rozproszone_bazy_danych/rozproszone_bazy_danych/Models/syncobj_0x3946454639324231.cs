@@ -11,61 +11,19 @@ namespace rozproszone_bazy_danych.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     
-    public partial class Users
+    public partial class syncobj_0x3946454639324231
     {
-        public Users()
-        {
-            this.Settlement = new HashSet<Settlement>();
-        }
-    
         public int Id { get; set; }
-
-        [DisplayName("Nazwa u¿ytkownika")]
-        [Required]
-        [StringLength(100)]
         public string UserName { get; set; }
-
-        [DataType(DataType.Password)]
-        [DisplayName("Has³o")]
-        [Required]
-        [StringLength(100)]
         public string Password { get; set; }
-
-        [DisplayName("Imiê")]
-        [Required]
-        [StringLength(100)]
         public string FirstName { get; set; }
-
-        [DisplayName("Nazwisko")]
-        [Required]
-        [StringLength(100)]
         public string SureName { get; set; }
-
-        [DisplayName("Adres email")]
-        [Required]
-        [StringLength(100)]
         public string Mail { get; set; }
-
-        [DisplayName("Nr telefonu")]
-        [Required]
-        [StringLength(10)]
         public string Phone { get; set; }
-
-        [DisplayName("Aktualne zu¿ycie energii")]
         public double Last_energy_usage { get; set; }
-
-        [DisplayName("Nr PESEL")]
-        [Required]
         public Nullable<double> Pesel { get; set; }
-
-        [DisplayName("Miasto")]
         public int City_Id { get; set; }
         public string PasswordSalt { get; set; }
-    
-        public virtual City City { get; set; }
-        public virtual ICollection<Settlement> Settlement { get; set; }
     }
 }
