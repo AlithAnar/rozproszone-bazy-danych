@@ -274,8 +274,6 @@
     <Compile Include="Models\Province.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegisterAddress.cs" />
-    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Settlement.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
