@@ -8,36 +8,23 @@
 
 <fieldset>
     <legend>Settlement</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Users.UserName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Users.UserName)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Current_date)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Current_date)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.energy_usage)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.energy_usage)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.settlement_date)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.settlement_date)
-    </div>
+    <table>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Current_date):</b></td>
+            <td>@Html.DisplayFor(model => model.Current_date)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.energy_usage):</b></td>
+            <td>@Html.DisplayFor(model => model.energy_usage)</td>
+        </tr>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.settlement_date):</b></td>
+            <td>@Html.DisplayFor(model => model.settlement_date)</td>
+        </tr>
+      </table>
+        
 </fieldset>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Wróć", "Index", "Home");
+    @Html.ActionLink("Wróć", "Index", "Home")
 </p>
