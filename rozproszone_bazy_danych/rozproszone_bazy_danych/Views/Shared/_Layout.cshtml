@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title System zgłaszania zużycia energii elektrycznej</title>
+        <title>System zgłaszania zużycia energii elektrycznej</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -11,9 +11,13 @@
     <body>
         <header>
             <div class="content-wrapper">
+
                 <div class="float-left">
-                    
-                </div>
+                    <img src="@Url.Content("~/Images/logo.gif")" width="30%" height="10%" style="float:left"/>
+                    <div class="site-title">
+                        Elektrownia X / електростанція X
+                    </div>
+                    </div>
                 <div class="float-right">
                     <section id="login">
                         @Html.Partial("_LoginPartial")
@@ -22,6 +26,7 @@
                         @Html.Action("GetMenu", "User")
                     </nav>
                 </div>
+                
             </div>
         </header>
         <div id="body">
