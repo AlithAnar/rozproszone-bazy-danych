@@ -1,0 +1,29 @@
+﻿@model IEnumerable<rozproszone_bazy_danych.Models.Users>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+<table>
+    <tr>
+        <th>
+            Użytkownik
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditUser", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsUser", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteUser", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+

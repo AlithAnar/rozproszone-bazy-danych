@@ -193,6 +193,18 @@ namespace rozproszone_bazy_danych.Security
             }
         }
 
+        public Users GetUser(int id)
+        {
+            if (currentBase == 1)
+            {
+                return dbS1.Users.Where(item => item.Id == id).FirstOrDefault();
+            }
+            else
+            {
+                return dbCS.Users.Where(item => item.Id == id).FirstOrDefault();
+            }
+        }
+
         public void CreateUser(Users user)
         {
             if (currentBase == 1)

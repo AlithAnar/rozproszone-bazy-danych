@@ -1,0 +1,47 @@
+﻿@model IEnumerable<rozproszone_bazy_danych.Models.Settlement>
+@{
+    ViewBag.Title = "Settlements";
+}
+
+<h2>Settlements</h2>
+<table>
+    <tr>
+        <th>
+            Użytkownik
+        </th>
+        <th>
+            Dzisiejsza data
+        </th>
+        <th>
+            Stan zużycia energii
+        </th>
+        <th>
+            Data ostatniego zgłoszenia
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.energy_usage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.settlement_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditSettlements", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailsSettlements", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteSettlements", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
