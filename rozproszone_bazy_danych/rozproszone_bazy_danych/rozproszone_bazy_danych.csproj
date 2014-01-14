@@ -194,6 +194,110 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Models\City.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\conflict_dbo_City.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\conflict_dbo_Province.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\conflict_dbo_Settlement.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\conflict_dbo_Users.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_conflictdetectionconfigrequest.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_conflictdetectionconfigresponse.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_lsns.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_originatorid_history.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_request.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_response.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_topologyrequest.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpeer_topologyresponse.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSpub_identity_range.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSreplication_objects.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSreplication_subscriptions.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSsubscription_agents.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSsubscription_articles.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Settlement.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettlementModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettlementModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettlementModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettlementModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettlementModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysarticlecolumns.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysarticles.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysarticleupdates.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\syspublications.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysreplservers.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysschemaarticles.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\syssubscriptions.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\systranschemas.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>SettlementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Security\DataBaseManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SettlementController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -202,125 +306,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\City.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\conflict_dbo_City.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\conflict_dbo_Province.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\conflict_dbo_Settlement.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\conflict_dbo_Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_conflictdetectionconfigrequest.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_conflictdetectionconfigresponse.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_lsns.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_originatorid_history.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_request.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_response.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_topologyrequest.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpeer_topologyresponse.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSpub_identity_range.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSreplication_objects.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSreplication_subscriptions.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSsubscription_agents.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MSsubscription_articles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Province.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Settlement.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syncobj_0x3834384334344536.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syncobj_0x3946454639324231.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syncobj_0x4439414242463337.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syncobj_0x4538363531383346.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysarticlecolumns.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysarticles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysarticleupdates.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysextendedarticlesview.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syspublications.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysreplservers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysschemaarticles.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\syssubscriptions.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\systranschemas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\SystemRoleAuthorizeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -379,22 +367,22 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\SettlementModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>SettlementModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\SettlementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>SettlementModel.edmx</DependentUpon>
+      <LastGenOutput>SettlementModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\SettlementModel.edmx.diagram">
+      <DependentUpon>SettlementModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\SettlementModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>SettlementModel.edmx</DependentUpon>
+      <LastGenOutput>SettlementModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -464,6 +452,8 @@
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\LogOut.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\User\GetMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -473,6 +463,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

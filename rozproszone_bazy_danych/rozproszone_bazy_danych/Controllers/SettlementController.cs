@@ -6,22 +6,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using rozproszone_bazy_danych.Models;
+using rozproszone_bazy_danych.Security;
 using System.Web.Security;
 
 namespace rozproszone_bazy_danych.Controllers
     {
     public class SettlementController : Controller
         {
-        private SettlementEntities db = new SettlementEntities();
-
+        DataBaseManager db;
+        public SettlementController()
+        {
+            db = new DataBaseManager();
+        }
         //
         // GET: /Settlement/
 
+        //[SystemRoleAuthorizeAttribute(RequiredSystemRole = "Admin")]
         public ActionResult Index()
             {
             try
                 {
-                var settlement = db.Settlement.Include(s => s.Users);
+                //var settlement = db.Settlement.Where(item => item.Users.UserName == User.Identity.Name);
+                var settlement = db.GetSettlements(User.Identity.Name);
                 ViewBag.error = "";
                 return View(settlement.ToList());
                 }
@@ -39,7 +45,7 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Details(int id = 0)
             {
-            Settlement settlement = db.Settlement.Find(id);
+            Settlement settlement = db.GetSettlement(id, User.Identity.Name);
             if (settlement == null)
                 {
                 return HttpNotFound();
@@ -52,7 +58,7 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Create()
             {
-            ViewBag.UsersId = new SelectList(db.Users, "Id", "UserName");
+            ViewBag.UsersId = new SelectList(db.GetUsers(), "Id", "UserName");
             return View();
             }
 
@@ -71,12 +77,11 @@ namespace rozproszone_bazy_danych.Controllers
 
             if (ModelState.IsValid)
                 {
-                db.Settlement.Add(settlement);
-                db.SaveChanges();
+                    db.AddSettlement(settlement, User.Identity.Name);
                 return RedirectToAction("Index");
                 }
 
-            ViewBag.UsersId = new SelectList(db.Users, "Id", "UserName", settlement.UsersId);
+            ViewBag.UsersId = new SelectList(db.GetUsers(), "Id", "UserName", settlement.UsersId);
             return View(settlement);
             }
 
@@ -85,12 +90,12 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Edit(int id = 0)
             {
-            Settlement settlement = db.Settlement.Find(id);
+            Settlement settlement = db.GetSettlement(id, User.Identity.Name);
             if (settlement == null)
                 {
                 return HttpNotFound();
                 }
-            ViewBag.UsersId = new SelectList(db.Users, "Id", "UserName", settlement.UsersId);
+            ViewBag.UsersId = new SelectList(db.GetUsers(), "Id", "UserName", settlement.UsersId);
             return View(settlement);
             }
 
@@ -103,11 +108,10 @@ namespace rozproszone_bazy_danych.Controllers
             {
             if (ModelState.IsValid)
                 {
-                db.Entry(settlement).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.EditSettlement(settlement, User.Identity.Name);
+                    return RedirectToAction("Index");
                 }
-            ViewBag.UsersId = new SelectList(db.Users, "Id", "UserName", settlement.UsersId);
+            ViewBag.UsersId = new SelectList(db.GetUsers(), "Id", "UserName", settlement.UsersId);
             return View(settlement);
             }
 
@@ -116,7 +120,7 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Delete(int id = 0)
             {
-            Settlement settlement = db.Settlement.Find(id);
+            Settlement settlement = db.GetSettlement(id, User.Identity.Name);
             if (settlement == null)
                 {
                 return HttpNotFound();
@@ -131,9 +135,7 @@ namespace rozproszone_bazy_danych.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
             {
-            Settlement settlement = db.Settlement.Find(id);
-            db.Settlement.Remove(settlement);
-            db.SaveChanges();
+                db.RemoveSettlement(id, User.Identity.Name);
             return RedirectToAction("Index");
             }
 
@@ -142,5 +144,5 @@ namespace rozproszone_bazy_danych.Controllers
             db.Dispose();
             base.Dispose(disposing);
             }
-        }
+        }  
     }

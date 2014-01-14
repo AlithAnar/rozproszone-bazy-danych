@@ -37,5 +37,6 @@ namespace rozproszone_bazy_danych.Models
         public Nullable<double> Pesel { get; set; }
         public Nullable<int> City_Id { get; set; }
         public string PasswordSalt { get; set; }
+        public Nullable<int> UserRole { get; set; }
     }
 }

@@ -8,19 +8,24 @@ using System.Web.Mvc;
 using rozproszone_bazy_danych.Models;
 using System.Web.Security;
 using System.Data.SqlClient;
+using rozproszone_bazy_danych.Security;
 
 namespace rozproszone_bazy_danych.Controllers
     {
     public class UserController : Controller
         {
         //private UsersContext db = new UsersContext();
-        private SettlementEntities db = new SettlementEntities();
+        DataBaseManager db;
+        public UserController()
+        {
+            db = new DataBaseManager();
+        }
         //
         // GET: /User/
 
         public ActionResult Index()
             {
-            return View(db.Users.ToList());
+            return View(db.GetUsers().ToList());
             }
 
         [HttpGet]
@@ -54,7 +59,7 @@ namespace rozproszone_bazy_danych.Controllers
             var crypto = new SimpleCrypto.PBKDF2();
             bool IsValid = false;
 
-            var user = db.Users.FirstOrDefault(u => u.UserName == login);
+            var user = db.GetUser(login);
 
             if (user != null)
                 {
@@ -84,23 +89,7 @@ namespace rozproszone_bazy_danych.Controllers
                 {
                 try
                     {
-                    var crypto = new SimpleCrypto.PBKDF2();
-
-                    var encrypted = crypto.Compute(model.Password);
-
-                    var newuser = db.Users.Create();
-                    newuser.UserName = model.UserName;
-                    newuser.Password = encrypted;
-                    newuser.PasswordSalt = crypto.Salt;
-                    newuser.Phone = model.Phone;
-                    newuser.Pesel = model.Pesel;
-                    newuser.Mail = model.Mail;
-                    newuser.Last_energy_usage = 0;
-                    newuser.FirstName = model.FirstName;
-                    newuser.SureName = model.SureName;
-                    newuser.City_Id = model.City_Id;
-                    db.Users.Add(newuser);
-                    db.SaveChanges();
+                        db.CreateUser(model);
                     }
                 catch (Exception ex)
                     {
@@ -113,7 +102,8 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult ProvinceList()
             {
-            List<Province> list = db.Province.ToList();
+
+                List<Province> list = db.GetProvinces().ToList();
 
             if (HttpContext.Request.IsAjaxRequest())
                 {
@@ -125,7 +115,7 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult CityList(int id)
             {
-            List<City> list = db.City.Where(x=>x.Province_Id == id).ToList();
+                List<City> list = db.GetCities(id).ToList();
 
             if (HttpContext.Request.IsAjaxRequest())
                 {
@@ -148,7 +138,7 @@ namespace rozproszone_bazy_danych.Controllers
             var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             var ticketInfo = FormsAuthentication.Decrypt(cookie.Value);
             id = int.Parse(ticketInfo.UserData);
-            Users users = db.Users.Find(id);
+            Users users = db.GetUser(User.Identity.Name);
             if (users == null)
                 {
                 return HttpNotFound();
@@ -173,8 +163,7 @@ namespace rozproszone_bazy_danych.Controllers
             {
             if (ModelState.IsValid)
                 {
-                db.Users.Add(users);
-                db.SaveChanges();
+                db.CreateUser(users);
                 return RedirectToAction("Index");
                 }
 
@@ -190,7 +179,7 @@ namespace rozproszone_bazy_danych.Controllers
             var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             var ticketInfo = FormsAuthentication.Decrypt(cookie.Value);
             id = int.Parse(ticketInfo.UserData);
-            Users users = db.Users.Find(id);
+            Users users = db.GetUser(User.Identity.Name);
             if (users == null)
                 {
                 return HttpNotFound();
@@ -204,15 +193,14 @@ namespace rozproszone_bazy_danych.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Users users)
+        public ActionResult Edit(Users user)
             {
             if (ModelState.IsValid)
                 {
-                db.Entry(users).State = EntityState.Modified;
-                db.SaveChanges();
+                    db.EditUser(user);
                 return RedirectToAction("Index");
                 }
-            return View(users);
+            return View(user);
             }
 
         //
@@ -220,7 +208,7 @@ namespace rozproszone_bazy_danych.Controllers
 
         public ActionResult Delete(int id = 0)
             {
-            Users users = db.Users.Find(id);
+            Users users = db.GetUser(User.Identity.Name);
             if (users == null)
                 {
                 return HttpNotFound();
@@ -235,12 +223,15 @@ namespace rozproszone_bazy_danych.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
             {
-            Users users = db.Users.Find(id);
-            db.Users.Remove(users);
-            db.SaveChanges();
+                db.RemoveUser(id, User.Identity.Name);
             return RedirectToAction("Index");
             }
 
+        public PartialViewResult GetMenu()
+        {
+            ViewBag.admin = db.IsInRole(User.Identity.Name, "Admin");
+            return PartialView();
+        }
         protected override void Dispose(bool disposing)
             {
             db.Dispose();
