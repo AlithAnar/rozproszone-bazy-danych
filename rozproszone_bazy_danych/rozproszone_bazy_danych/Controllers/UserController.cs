@@ -19,7 +19,7 @@ namespace rozproszone_bazy_danych.Controllers
         public UserController()
         {
             db = new DataBaseManager();
-        }
+            }
         //
         // GET: /User/
 
@@ -41,8 +41,6 @@ namespace rozproszone_bazy_danych.Controllers
                 {
                 if (IsValid(userr.UserName, userr.Password))
                     {
-                    //FormsAuthentication.SetAuthCookie(userr.UserName, true);
-
                     return RedirectToAction("Index", "Home");
                     }
                 else

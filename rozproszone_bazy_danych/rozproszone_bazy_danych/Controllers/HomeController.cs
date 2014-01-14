@@ -14,8 +14,14 @@ namespace rozproszone_bazy_danych.Controllers
         SettlementEntities db = new SettlementEntities();
         public ActionResult Index()
             {
-                ViewBag.Message = "Dowiedz się o nowościach w najszej firmie!"; // +GetRegion("http://www.geobytes.com/IpLocator.htm?GetLocation", "IpAddress=156.17.233.85");
-
+            if (Request.IsAuthenticated)
+                {
+                ViewBag.Message = "Odnotowano awarie w dostawie energii elektrycznej w rejonach Wrocławia!";
+                }
+            else
+                {
+                ViewBag.Message = "Dowiedz się o nowościach w najszej firmie! Załóż konto lub zaloguj się."; // +GetRegion("http://www.geobytes.com/IpLocator.htm?GetLocation", "IpAddress=156.17.233.85");
+                }
             return View();
             }
 

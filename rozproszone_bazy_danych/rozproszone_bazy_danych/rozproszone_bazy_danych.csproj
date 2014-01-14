@@ -371,6 +371,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SettlementModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\logo.gif" />
     <Content Include="Models\SettlementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SettlementModel.edmx</DependentUpon>
