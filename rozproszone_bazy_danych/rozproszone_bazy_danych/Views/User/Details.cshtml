@@ -7,44 +7,63 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>User</legend>
+    <legend>Users</legend>
 
-    <table>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.UserName):</b></td>
-            <td>@Html.DisplayFor(model => model.UserName)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.FirstName):</b></td>
-            <td>@Html.DisplayFor(model => model.FirstName)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.SureName):</b></td>
-            <td>@Html.DisplayFor(model => model.SureName)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.Mail):</b></td>
-            <td>@Html.DisplayFor(model => model.Mail)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.Phone):</b></td>
-            <td>@Html.DisplayFor(model => model.Phone)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.Last_energy_usage):</b></td>
-            <td>@Html.DisplayFor(model => model.Last_energy_usage)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.Pesel):</b></td>
-            <td>@Html.DisplayFor(model => model.Pesel)</td>
-        </tr>
-        <tr>
-            <td><b>@Html.DisplayNameFor(model => model.City_Id):</b></td>
-            <td>@Html.DisplayFor(model => model.City.name)</td>
-        </tr>
-    </table>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SureName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SureName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mail)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Last_energy_usage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Last_energy_usage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Pesel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Pesel)
+    </div>
+
+    <tr>
+        <td><b>Miasto:</b></td>
+        <td>@ViewBag.City</td>
+    </tr>
 </fieldset>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Wróć", "Index", "Home")
+    @Html.ActionLink("Wróć", "Index", "Home");
 </p>
