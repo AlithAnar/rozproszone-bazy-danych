@@ -16,11 +16,13 @@ namespace rozproszone_bazy_danych.Security
         int currentBase;
         SettlementEntities dbCS;
         SettlementS1Entities dbS1;
+        SettlementS1Entities dbS2;
 
         public DataBaseManager()
         {
             dbCS = new SettlementEntities();
             dbS1 = new SettlementS1Entities();
+            dbS2 = new SettlementS1Entities();
         }
 
         public bool IsInRole(String userName, String role)
@@ -35,6 +37,15 @@ namespace rozproszone_bazy_danych.Security
                         temp = 1;
                     else temp = 0;
                     if (dbS1.Users.Where(item => item.UserName == userName).FirstOrDefault().UserRole == temp)
+                        return true;
+                    else return false;
+                }
+                else if(currentBase == 2)
+                {
+                    if (role == "Admin")
+                        temp = 1;
+                    else temp = 0;
+                    if (dbS2.Users.Where(item => item.UserName == userName).FirstOrDefault().UserRole == temp)
                         return true;
                     else return false;
                 }
@@ -56,6 +67,8 @@ namespace rozproszone_bazy_danych.Security
             {
                 if (dbCS.Users.Where(item => item.UserName == userName).FirstOrDefault().City.Province.name == "Dolnośląskie")
                     return 1;
+                else if (dbCS.Users.Where(item => item.UserName == userName).FirstOrDefault().City.Province.name == "Wielkopolskie")
+                    return 2;
                 else
                     return 0;
             }
@@ -68,6 +81,10 @@ namespace rozproszone_bazy_danych.Security
             if (currentBase == 1)
             {
                 return dbS1.Settlement.Where(item => item.Users.UserName == userName).ToList();
+            }
+            else if(currentBase == 2)
+            {
+                return dbS2.Settlement.Where(item => item.Users.UserName == userName).ToList();
             }
             else
             {
@@ -82,10 +99,15 @@ namespace rozproszone_bazy_danych.Security
             {
                 return dbS1.Settlement.Find(id);
             }
+            else if(currentBase == 2)
+            {
+                return dbS2.Settlement.Find(id);
+            }
             else
             {
                 return dbCS.Settlement.Find(id);
             }
+
         }
 
         public int GetUserId(String userName)
@@ -94,6 +116,10 @@ namespace rozproszone_bazy_danych.Security
             if (currentBase == 1)
             {
                 return dbS1.Users.Where(item => item.UserName == userName).FirstOrDefault().Id;
+            }
+            else if(currentBase == 2)
+            {
+                return dbS2.Users.Where(item => item.UserName == userName).FirstOrDefault().Id;
             }
             else
             {
@@ -108,9 +134,14 @@ namespace rozproszone_bazy_danych.Security
                 List<Province> temp = dbS1.Province.ToList();
                 return temp;
             }
+            else if(currentBase == 2)
+            {
+                List<Province> temp = dbS2.Province.ToList();
+                return temp;
+            }
             else
             {
-                List<Province> temp = dbS1.Province.ToList();
+                List<Province> temp = dbCS.Province.ToList();
                 return temp;
             }
         }
@@ -120,6 +151,10 @@ namespace rozproszone_bazy_danych.Security
             if (currentBase == 1)
             {
                 return dbS1.Users;
+            }
+            else if(currentBase == 2)
+            {
+                return dbS2.Users;
             }
             else
             {
@@ -135,6 +170,11 @@ namespace rozproszone_bazy_danych.Security
                 dbS1.Settlement.Add(settlement);
                 dbS1.SaveChanges();
             }
+            else if(currentBase == 2)
+            {
+                dbS2.Settlement.Add(settlement);
+                dbS2.SaveChanges();
+            }
             else
             {
                 dbCS.Settlement.Add(settlement);
@@ -149,6 +189,11 @@ namespace rozproszone_bazy_danych.Security
             {
                 dbS1.Entry(settlement).State = EntityState.Modified;
                 dbS1.SaveChanges();
+            }
+            else if(currentBase == 2)
+            {
+                dbS2.Entry(settlement).State = EntityState.Modified;
+                dbS2.SaveChanges();
             }
             else
             {
@@ -166,6 +211,12 @@ namespace rozproszone_bazy_danych.Security
                 dbS1.Settlement.Remove(settlement);
                 dbS1.SaveChanges();
             }
+            else if(currentBase == 2)
+            {
+                Settlement settlement = GetSettlement(id, userName);
+                dbS2.Settlement.Remove(settlement);
+                dbS2.SaveChanges();
+            }
             else
             {
                 Settlement settlement = GetSettlement(id, userName);
@@ -178,6 +229,7 @@ namespace rozproszone_bazy_danych.Security
         public void Dispose()
         {
             dbS1.Dispose();
+            dbS2.Dispose();
             dbCS.Dispose();
         }
 
@@ -186,6 +238,10 @@ namespace rozproszone_bazy_danych.Security
             if (currentBase == 1)
             {
                 return dbS1.Users.Where(item => item.UserName == userName).FirstOrDefault();
+            }
+            else if(currentBase == 2)
+            {
+                return dbS2.Users.Where(item => item.UserName == userName).FirstOrDefault();
             }
             else
             {
@@ -198,6 +254,10 @@ namespace rozproszone_bazy_danych.Security
             if (currentBase == 1)
             {
                 return dbS1.Users.Where(item => item.Id == id).FirstOrDefault();
+            }
+            else if(currentBase == 2)
+            {
+                return dbS2.Users.Where(item => item.Id == id).FirstOrDefault();
             }
             else
             {
@@ -255,6 +315,10 @@ namespace rozproszone_bazy_danych.Security
             {
                 return dbS1.City.Where(item => item.Province_Id == provinceId);
             }
+            else if(currentBase == 2)
+            {
+                return dbS2.City.Where(item => item.Province_Id == provinceId);
+            }
             else
             {
                 return dbCS.City.Where(item => item.Province_Id == provinceId);
@@ -268,6 +332,11 @@ namespace rozproszone_bazy_danych.Security
             {
                 dbS1.Entry(user).State = EntityState.Modified;
                 dbS1.SaveChanges();
+            }
+            else if(currentBase == 2)
+            {
+                dbS2.Entry(user).State = EntityState.Modified;
+                dbS2.SaveChanges();
             }
             else
             {
@@ -284,6 +353,12 @@ namespace rozproszone_bazy_danych.Security
                 Users users = dbS1.Users.Find(id);
                 dbS1.Users.Remove(users);
                 dbS1.SaveChanges();
+            }
+            else if(currentBase == 2)
+            {
+                Users users = dbCS.Users.Find(id);
+                dbS2.Users.Remove(users);
+                dbS2.SaveChanges();
             }
             else
             {
