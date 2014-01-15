@@ -58,12 +58,10 @@
         @Html.DisplayFor(model => model.Pesel)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.City_Id)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.City_Id)
-    </div>
+    <tr>
+        <td><b>Miasto:</b></td>
+        <td>@ViewBag.City</td>
+    </tr>
 </fieldset>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id=Model.Id }) |
