@@ -137,6 +137,7 @@ namespace rozproszone_bazy_danych.Controllers
             var ticketInfo = FormsAuthentication.Decrypt(cookie.Value);
             id = int.Parse(ticketInfo.UserData);
             Users users = db.GetUser(User.Identity.Name);
+            ViewBag.City = db.GetCity(users.City_Id).name;
             if (users == null)
                 {
                 return HttpNotFound();
@@ -178,6 +179,7 @@ namespace rozproszone_bazy_danych.Controllers
             var ticketInfo = FormsAuthentication.Decrypt(cookie.Value);
             id = int.Parse(ticketInfo.UserData);
             Users users = db.GetUser(User.Identity.Name);
+            ViewBag.City = db.GetCity(users.City_Id).name;
             if (users == null)
                 {
                 return HttpNotFound();

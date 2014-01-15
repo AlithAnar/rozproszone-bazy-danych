@@ -261,6 +261,18 @@ namespace rozproszone_bazy_danych.Security
             }
         }
 
+        public City GetCity(int cityId)
+            {
+            if (currentBase == 1)
+                {
+                return dbS1.City.FirstOrDefault(item => item.Id == cityId);
+                }
+            else
+                {
+                return dbCS.City.FirstOrDefault(item => item.Id == cityId);
+                }
+            }
+
         public void EditUser(Users user)
         {
             currentBase = GetUserServer(user.UserName);
